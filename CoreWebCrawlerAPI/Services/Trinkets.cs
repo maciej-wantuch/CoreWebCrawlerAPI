@@ -4,7 +4,7 @@ using CoreWebCrawlerAPI.Interfaces;
 using CoreWebCrawlerAPI.Models;
 namespace CoreWebCrawlerAPI.Services
 {
-    public class Trinkets : TrinketsInterface
+    public class Trinkets : ITrinkets
     {
         private List<Trinket> _trinket;
 

@@ -4,7 +4,7 @@ using CoreWebCrawlerAPI.Models;
 
 namespace CoreWebCrawlerAPI.Interfaces
 {
-    public interface TrinketsInterface
+    public interface ITrinkets
     {
         bool DoesTrinketExist(string id);
 
