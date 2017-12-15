@@ -2,6 +2,7 @@
 using System.Linq;
 using CoreWebCrawlerAPI.Interfaces;
 using CoreWebCrawlerAPI.Models;
+
 namespace CoreWebCrawlerAPI.Services
 {
     public class Trinkets : ITrinkets
@@ -13,12 +14,12 @@ namespace CoreWebCrawlerAPI.Services
             InitializeData();
         }
 
-        public IEnumerable<Trinkets> All
+        public IEnumerable<Trinket> All
         {
             get { return _trinket; }
         }
 
-        public bool DoesItemExist(string id)
+        public bool DoesTrinketExist(string id)
         {
             return _trinket.Any(t => t.TrinketId == id);
         }
