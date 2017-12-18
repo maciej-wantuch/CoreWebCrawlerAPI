@@ -8,7 +8,7 @@ namespace CoreWebCrawlerAPI.Controllers
     [Route("api/[controller]")]
     public class TrinketsController : Controller
     {
-        private readonly ITrinkets _trinkets;
+        readonly ITrinkets _trinkets;
 
         public TrinketsController(ITrinkets trinkets)
         {

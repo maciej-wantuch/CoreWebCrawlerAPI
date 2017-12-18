@@ -1,5 +1,6 @@
 ﻿using System.IO;
-using Microsoft.AspNetCore;
+using CoreWebCrawlerAPI.CrawlEngine;
+using CoreWebCrawlerAPI.SQLiteDB;
 using Microsoft.AspNetCore.Hosting;
 
 namespace CoreWebCrawlerAPI
@@ -8,6 +9,10 @@ namespace CoreWebCrawlerAPI
     {
         public static void Main(string[] args)
         {
+            DataBase.SeedDataBase();
+
+            Spider.GetContent();
+
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseUrls("http://*:5000")
@@ -15,8 +20,9 @@ namespace CoreWebCrawlerAPI
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
-
+            
             host.Run();
+
         }
     }
 }

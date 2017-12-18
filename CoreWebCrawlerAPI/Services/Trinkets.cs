@@ -7,7 +7,7 @@ namespace CoreWebCrawlerAPI.Services
 {
     public class Trinkets : ITrinkets
     {
-        private List<Trinket> _trinket;
+        List<Trinket> _trinket;
 
         public Trinkets()
         {
@@ -47,7 +47,7 @@ namespace CoreWebCrawlerAPI.Services
             _trinket.Remove(this.Find(id));
         }
 
-        private void InitializeData()
+        void InitializeData()
         {
             _trinket = new List<Trinket>();
 

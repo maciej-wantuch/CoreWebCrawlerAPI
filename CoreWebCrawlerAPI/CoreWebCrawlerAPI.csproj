@@ -9,10 +9,13 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Controllers\" />
     <Folder Include="Services\" />
+    <Folder Include="SQLiteDB\" />
+    <Folder Include="CrawlEngine\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.6.8" />
   </ItemGroup>
 
 </Project>
