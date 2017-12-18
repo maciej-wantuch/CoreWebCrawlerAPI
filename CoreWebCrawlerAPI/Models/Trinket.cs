@@ -6,7 +6,7 @@ namespace CoreWebCrawlerAPI.Models
     public class Trinket
     {
         [Required]
-        public string TrinketId { get; set; }
+        public int TrinketId { get; set; }
 
         [Required]
         public string ProductName { get; set; }

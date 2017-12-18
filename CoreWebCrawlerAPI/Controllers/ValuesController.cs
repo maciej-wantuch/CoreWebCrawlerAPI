@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using CoreWebCrawlerAPI.Models;
+using CoreWebCrawlerAPI.SQLiteDB;
 using Microsoft.AspNetCore.Mvc;
 namespace CoreWebCrawlerAPI.Controllers
 {
@@ -7,9 +10,9 @@ namespace CoreWebCrawlerAPI.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Trinket> Get()
         {
-            return new string[] { "value1", "value2" };
+            return DataBase.readFromDataBaseToList();
         }
 
         // GET api/values/5

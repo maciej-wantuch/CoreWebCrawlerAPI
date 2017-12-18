@@ -1,20 +1,21 @@
 ﻿using System.Collections.Generic;
 using CoreWebCrawlerAPI.Models;
+using CoreWebCrawlerAPI.SQLiteDB;
 
 namespace CoreWebCrawlerAPI.Interfaces
 {
     public interface ITrinkets
     {
-        bool DoesTrinketExist(string id);
+        bool DoesTrinketExist(int id);
 
-        IEnumerable<Trinket> All { get; }
+        List<Trinket> All { get; }
 
-        Trinket Find(string id);
+        Trinket Find(int id);
 
         void Insert(Trinket trinket);
 
         void Update(Trinket trinked);
 
-        void Delete(string id);
+        void Delete(int id);
     }
 }

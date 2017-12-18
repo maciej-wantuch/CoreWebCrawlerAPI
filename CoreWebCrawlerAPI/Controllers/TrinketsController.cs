@@ -68,7 +68,7 @@ namespace CoreWebCrawlerAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(string tId)
+        public IActionResult Delete(int tId)
         {
             try
             {

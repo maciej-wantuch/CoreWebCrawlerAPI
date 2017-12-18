@@ -1,5 +1,6 @@
 ﻿using CoreWebCrawlerAPI.Interfaces;
 using CoreWebCrawlerAPI.Services;
+using CoreWebCrawlerAPI.SQLiteDB;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +30,8 @@ namespace CoreWebCrawlerAPI
             services.AddMvc();
 
             services.AddSingleton<ITrinkets, Trinkets>();
+
+            services.AddDbContext<TrinketsContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

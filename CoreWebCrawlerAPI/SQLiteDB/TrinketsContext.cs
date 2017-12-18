@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CoreWebCrawlerAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoreWebCrawlerAPI.SQLiteDB
 {
-    public class DataBaseTrinketsContext : DbContext
+    public class TrinketsContext : DbContext
     {
-        public DbSet<DataBaseTrinket> TrinketsDataBase { get; set; }
+        public DbSet<Trinket> TrinketsDataBase { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
