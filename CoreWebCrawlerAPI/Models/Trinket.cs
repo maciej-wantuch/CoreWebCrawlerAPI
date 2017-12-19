@@ -19,8 +19,5 @@ namespace CoreWebCrawlerAPI.Models
 
         [Required]
         public string ProductDiscount { get; set; }
-
-        public bool Done { get; set; }
-
     }
 }

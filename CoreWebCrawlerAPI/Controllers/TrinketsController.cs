@@ -5,7 +5,7 @@ using CoreWebCrawlerAPI.Interfaces;
 using CoreWebCrawlerAPI.Models;
 namespace CoreWebCrawlerAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class TrinketsController : Controller
     {
         readonly ITrinkets _trinkets;
@@ -21,69 +21,10 @@ namespace CoreWebCrawlerAPI.Controllers
             return Ok(_trinkets.All);
         }
 
-        [HttpPost]
-        public IActionResult Create([FromBody] Trinket trinket)
+        [HttpGet]
+        public IActionResult Search()
         {
-            try
-            {
-                if (trinket == null || !ModelState.IsValid)
-                {
-                    return BadRequest(ErrorCode.TrinketNameLinkPriceDiscountRequired.ToString());
-                }
-                bool trinketExist = _trinkets.DoesTrinketExist(trinket.TrinketId);
-                if (trinketExist)
-                {
-                    return StatusCode(StatusCodes.Status409Conflict, ErrorCode.TrinketIDInUse.ToString());
-                }
-                _trinkets.Insert(trinket);
-            }
-            catch (Exception)
-            {
-                return BadRequest(ErrorCode.CouldNotCreateTrinket.ToString());
-            }
-            return Ok(trinket);
-        }
-
-        [HttpPut]
-        public IActionResult Edit([FromBody] Trinket trinket)
-        {
-            try
-            {
-                if (trinket == null || !ModelState.IsValid)
-                {
-                    return BadRequest(ErrorCode.TrinketNameLinkPriceDiscountRequired.ToString());
-                }
-                var existingTrinket = _trinkets.Find(trinket.TrinketId);
-                if (existingTrinket == null)
-                {
-                    return NotFound(ErrorCode.TrinketNotFound.ToString());
-                }
-                _trinkets.Update(trinket);
-            }
-            catch (Exception)
-            {
-                return BadRequest(ErrorCode.CouldNotUpdateTrinket.ToString());
-            }
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int tId)
-        {
-            try
-            {
-                var trinket = _trinkets.Find(tId);
-                if (trinket == null)
-                {
-                    return NotFound(ErrorCode.TrinketNotFound.ToString());
-                }
-                _trinkets.Delete(tId);
-            }
-            catch (Exception)
-            {
-                return BadRequest(ErrorCode.CouldNotDeleteTrinket.ToString());
-            }
-            return NoContent();
+            return Ok(_trinkets.Search());
         }
     }
 
