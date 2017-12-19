@@ -15,9 +15,9 @@ namespace CoreWebCrawlerAPI.Services
         {
             //TODO First request DB seed
 
-            //DataBase.SeedDataBase();
+            DataBase.SeedDataBase();
 
-            //Spider.GetContent();
+            Spider.GetContent();
 
             _trinket = DataBase.readFromDataBaseToList();
         }
