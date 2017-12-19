@@ -9,10 +9,6 @@ namespace CoreWebCrawlerAPI
     {
         public static void Main(string[] args)
         {
-            DataBase.SeedDataBase();
-
-            Spider.GetContent();
-
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseUrls("http://*:5000")
